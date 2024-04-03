@@ -1,3 +1,4 @@
+import 'package:chat_app/widgets/user_image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +22,11 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: Text("Login in !"),
-      ),
+      body: UserImagePicker(),
+
+      // const Center(
+      //   child: Text("Login in !"),
+      // ),
     );
   }
 }
