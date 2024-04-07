@@ -15,7 +15,7 @@ class ChatMessages extends StatelessWidget {
           .collection('chat')
           .orderBy(
             'createdAt',
-            descending: false,
+            descending: true,
           )
           .snapshots(),
       builder: (ctx, chatSnapshots) {
@@ -50,9 +50,9 @@ class ChatMessages extends StatelessWidget {
                   ? loadedMessages[index + 1].data()
                   : null;
 
-              final currentMessageUserId = chatMessage['username'];
+              final currentMessageUserId = chatMessage['userId'];
               final nextMessageUserId =
-                  nextChatMessage != null ? nextChatMessage['username'] : null;
+                  nextChatMessage != null ? nextChatMessage['userId'] : null;
 
               final nextUserIsSame = nextMessageUserId == currentMessageUserId;
 
@@ -70,6 +70,7 @@ class ChatMessages extends StatelessWidget {
                 );
               }
             }
+
             // =>
             // Text(
             //loadedMessages[index].data()['text'],
